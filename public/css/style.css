@@ -1,0 +1,96 @@
+body{
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+}
+
+.container{
+      flex:1;
+}
+
+
+.border-bottom{
+      height: 4rem;
+}
+.fa-compass{
+      color: #fe424d;
+      font-size: 40px;
+}
+
+.nav-link{
+      color: black !important;
+}
+
+/* fotter  */
+.f-links a {
+      text-decoration: none;
+      color: #222222;
+  }
+  
+  .f-links a:hover{
+      text-decoration: underline;
+  }
+  
+  .f-info{
+      text-align: center;
+      height: 5rem;
+      background-color: #ebebeb;
+      display :flex; 
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: space-evenly; 
+      
+      
+  } 
+   .f-social ,.f-links {
+      width: 100%;
+      
+      margin-right: 1rem;
+      vertical-align: middle;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  } 
+  
+  .f-social i{
+      margin-right: 1rem;
+      font-size: 2 rem;
+  }
+
+  /* card */
+
+  .show-img{
+      height: 30vh;
+  }
+
+  .listing-card{
+      border: none !important;
+      margin-bottom: 2rem;
+  }
+  .card-img-top{
+      border-radius: 1 rem !important;
+      width: 100% !important;
+      object-fit: cover !important;
+  }
+  .card-body{
+      padding: 0 !important;
+      font-weight: 400 !important;
+  }
+  
+  .add-btn{
+     
+      background-color:brown !important;
+  }
+
+  .listing-link{
+      text-decoration: none;
+  }
+
+
+  /* map */
+
+  #map { 
+    height :400px;
+    width: 100vh;
+ }

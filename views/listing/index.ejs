@@ -1,0 +1,115 @@
+
+ <% layout("/layouts/boilerplate") %>
+<%= success %>
+
+<style>
+  #filters{
+     display :flex;
+     flex-wrap: wrap;
+     align-items: center;
+
+  }
+  .filter{
+     text-align: center;
+     margin-right: 2rem;
+     margin-top: 2rem;
+     opacity: 0.7;
+     
+
+  }
+
+  .filter:hover{
+     opacity: 2;
+     cursor: pointer;
+  }
+  .tax-info{
+     display: none;
+  }
+  .tax-toggle{
+     border: 1px solid black;
+     border-radius: 1rem;
+     height: 3rem;
+     padding: 1rem;
+     margin-left: 5rem;
+  }
+ </style>
+
+
+<div id="filters">
+ <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div> 
+     <p>Trending</p>
+ </div>
+ <div class="filter">
+     <div><i class="fa-solid fa-bed"></i></div> 
+      <p>Rooms</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-mountain-city"></i></div> 
+      <p>Iconic Cities</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-mountain"></i></div> 
+      <p>Mountains</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-umbrella-beach"></i></div> 
+      <p>Beach</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-brands fa-fort-awesome"></i></div> 
+      <p>Castle</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-person-swimming"></i></div> 
+      <p>Pools</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-tent"></i></div> 
+      <p>Camping</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-cow"></i></div> 
+      <p>Farms</p>
+  </div>
+  <div class="filter">
+     <div><i class="fa-solid fa-snowman"></i></div> 
+      <p>Snowfall</p>
+  </div>
+ <div class="tax-toggle">
+     <div class="form-check-reverse form-switch">
+         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+         <label class="form-check-label" for="flexSwitchCheckDefault">Display Total After Taxes</label>
+       </div>
+ </div>
+</div>
+
+
+  <body>
+    <h3>All Listings</h3>
+    <!-- <form method="GET" action="/listings/new">
+      <button>Create New Listing</button>
+    </form> -->
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
+      <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card  sting-card" >
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing_Image" style="height:20rem;">
+
+          <div class="card-body">
+            <p class="card-text"><b><%= listing.title %></b> <br>
+            <br>
+              <%= listing.description %> <br>
+            
+              &#x20B9; <%= listing.price %> <br>
+              <%= listing.location %> <br>
+              <%= listing.country %> <br>
+            
+            </p> 
+          </div>
+        </div>
+      </a>
+      <% } %>
+    </div>
+  </body>
+

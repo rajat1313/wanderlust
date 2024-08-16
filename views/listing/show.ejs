@@ -1,0 +1,116 @@
+<% layout("/layouts/boilerplate") %>
+
+  <body>
+    
+
+  <div class="row mt-3">
+    <div class="col-5 offset-4">
+
+   
+    <div class="card"  >
+      <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="Listing_Image" style="height:29rem;">
+      <div class="card-body">
+        <p class="card-text"><b><%= listing.title %></b> <br>
+       
+        <h3>owner  <i><%= listing.owner.username %> </i> <br> </h3> 
+          <%= listing.description %> <br>
+          &#x20B9; <%= listing.price %> <br>
+          <%= listing.location %> <br>
+          <%= listing.country %> <br>
+        </p> 
+
+        <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">Edit this Listing</a>
+        <br> <br>
+
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE"  class="btn btn-dark">
+          <button>Delete this listing</button>
+        </form>
+
+        <% } %>
+      
+
+      </div>
+       
+    </div>
+  </div>
+</div>
+
+<div class="col-8 offset-2 mb-3 mt-3">
+  <hr>
+  <% if(currUser) { %>
+  <h4>Leave a review</h4>
+ <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation" novalidate>
+  <div>
+    <label for="rating" class="form-control">Rating</label>
+    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+  </div>
+
+  <div>
+    <label for="comment" class="form-control">Comment</label>
+   <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+  </div>
+  <button class="btn btn-outline-dark">submit</button>
+ </form>
+</div>
+<% } %>
+
+
+<hr>
+<div class="col-8 offset-2 mb-3 mt-3">
+  <% if(listing.reviews.length > 0) {  %>
+<p><b>ALL Reviews</b></p>
+  <div class="row">
+    <div class="col-6">
+
+    
+<%  for(review of listing.reviews) { %>
+  <div class="card  mb-3 mt-3">
+    <div class="card-body">
+      <h5 class="card-title">  @<%= review.author?.username || 'Anonymous' %></h5>
+      <p class="card-text"><%=review.comment %></p>
+
+      <p class="card-text"><%= review.rating %> Star </p>
+
+      <form method="POST" action="/listings/<%= listing._id %>/reviews/<%=review._id%>?_method=DELETE">
+        <button class="btn btn-outline-dark">Delete Review</button>
+      </form>
+      <div> 
+   <% } %>
+
+  </ul>
+</div>
+<% } %>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="col-8 offset-2 mb-3 mt-3">
+  <div class="row">
+    <div class="col-8">
+      <h3>where you'll  be</h3>
+  <div id="map"></div>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+        <script>
+            let mapToken = "pk.eyJ1IjoicmFqYXQtc2hhcm1hIiwiYSI6ImNsd3dhaWUwMzEwMzYyanF6Ymo5d3hiMnEifQ.acDYitQNefqtpvRzlmybHw";
+            console.log(mapToken);
+            mapboxgl.accessToken = mapToken;
+            const map = new mapboxgl.Map({
+                container: 'map', // container ID
+                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                center: [77.2088, 28.6139], // starting position [lng, lat]
+                zoom: 9 // starting zoom
+            });
+        </script>
+  
+
+</div>
+</div>
+</div>
+
+
+
+  </body>
+
