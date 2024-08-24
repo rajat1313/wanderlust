@@ -101,6 +101,10 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc451314a34db7f1ed3161f3c8a1dec3ba91d42b
 
 app.use((req ,res,next)=>{
   res.locals.success = req.flash("success");
