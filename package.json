@@ -6,9 +6,9 @@
   },
   "name": "again",
   "version": "1.0.0",
-  "main": "app.js",  
+  "main": "app.js",   
   "scripts": {
-    "start": "app.js"  
+    "start": "node app.js"   
   },
   "keywords": [],
   "author": "",
