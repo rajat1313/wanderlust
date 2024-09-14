@@ -1,14 +1,12 @@
 {
-  
-
   "engines": {
     "node": "20.9.0"
   },
   "name": "again",
   "version": "1.0.0",
-  "main": "app.js",   
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js"   
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +24,7 @@
     "express-session": "^1.18.0",
     "joi": "^17.13.1",
     "method-override": "^3.0.0",
-    "mongodb": "^6.8.0",
+    "mongodb": "^6.8.1",
     "mongoose": "^8.4.0",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",

@@ -1,3 +1,4 @@
+
 <% layout("/layouts/boilerplate") %>
 
   <body>
@@ -11,9 +12,10 @@
       <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="Listing_Image" style="height:29rem;">
       <div class="card-body">
         <p class="card-text"><b><%= listing.title %></b> <br>
-       
-        <h3>owner  <i><%= listing.owner.username %> </i> <br> </h3> 
-          <%= listing.description %> <br>
+
+          <h3>Owner: <i><%= listing.owner.username %></i></h3>
+          <p><%= listing.description %></p>
+          
           &#x20B9; <%= listing.price %> <br>
           <%= listing.location %> <br>
           <%= listing.country %> <br>
@@ -26,8 +28,8 @@
         <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE"  class="btn btn-dark">
           <button>Delete this listing</button>
         </form>
-
         <% } %>
+     
       
 
       </div>
@@ -38,6 +40,7 @@
 
 <div class="col-8 offset-2 mb-3 mt-3">
   <hr>
+  
   <% if(currUser) { %>
   <h4>Leave a review</h4>
  <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation" novalidate>
@@ -87,6 +90,7 @@
 </div>
 </div>
 <hr>
+
 <div class="col-8 offset-2 mb-3 mt-3">
   <div class="row">
     <div class="col-8">
@@ -113,4 +117,3 @@
 
 
   </body>
-

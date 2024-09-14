@@ -1,0 +1,15 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "files.autoSave": "afterDelay",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "workbench.settings.applyToAllProfiles": [
+    
+
+
+    ],
+    "editor.tabCompletion": "on",
+    "window.doubleClickIconToClose": true
+}

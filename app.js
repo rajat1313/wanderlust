@@ -87,14 +87,15 @@ const sessionOptions = {
 
 
 
-
 app.use (session(sessionOptions));
 app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new localStrategy(User.authenticate()));
 
+
+
+passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -122,6 +123,14 @@ app.use((req ,res,next)=>{
 
 // });
 
+// app.get('/dashboard', (req, res) => {
+//   if (req.isAuthenticated()) {
+//       console.log('User is authenticated:', req.user);
+//       res.send('Welcome, ' + req.user.username);
+//   } else {
+//       res.redirect('/login');
+//   }
+// });
 
 
 app.use ("/listings", listings);
@@ -129,6 +138,7 @@ app.use ("/listings", listings);
 app.use ("/listings/:id/reviews" , reviews);
 
 app.use ("/", userRouter);
+
 // const validateListing = (req,res,next) =>{
 //   let {error}= listingSchema.validate(req.body)
 

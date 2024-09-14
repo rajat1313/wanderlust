@@ -17,10 +17,17 @@ router.post("/signup" , wrapAsync (listingController.SignUp));
 
 router.get("/login" ,listingController.login);
 
-router.post("/login",passport.authenticate("local" ,{failureRedirect:"/login" , failureFlash :"true"}), wrapAsync (async(req,res)=>{
-    req.flash("success" ,"welcome to wanderlust  you loggedin Successfully !");
+router.post("/login",passport.authenticate("local" ,{failureRedirect:"/login" , failureFlash :"true"}),(req,res)=>{
+    req.flash("success" ,"Welcome");
     res.redirect("/listings");
- }));
+ });
+
+
+//  router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), (req, res) => {
+//     console.log(req.user);  // This should log the user if authentication was successful
+//     req.flash("success" ,"welcome to wanderlust  you loggedin Successfully !")
+//     res.redirect('/listiing');
+// });
 
 
 router.get("/logout" ,listingController.logout );
